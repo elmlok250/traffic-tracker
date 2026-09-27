@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cairo Road Guard - äÙÇã ÅÏÇÑÉ ÇáÃÓØæá æÇáãÑæÑ</title>
+    <!-- ÇÓÊÏÚÇÁ ÎØ ÚÑÈí ÃäíŞ -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; direction: rtl; }
+        header { background: #1e293b; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; }
+        header h1 { font-size: 20px; color: #38bdf8; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        .card { background: #1e293b; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; color: #38bdf8; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 8px; }
+        .btn { display: inline-block; background: #0284c7; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; text-align: center; border: none; cursor: pointer; transition: 0.3s; width: 100%; margin-top: 10px; }
+        .btn:hover { background: #0369a1; }
+        .btn-danger { background: #dc2626; }
+        .btn-danger:hover { background: #b91c1c; }
+        .status-box { background: #0f172a; padding: 12px; border-radius: 6px; margin-top: 10px; font-size: 14px; border: 1px solid #334155; }
+        iframe { width: 100%; height: 300px; border: none; border-radius: 8px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>??? Cairo Road Guard</h1>
+        <span style="font-size: 14px; color: #94a3b8;">ÛÑİÉ ÇáÚãáíÇÊ æÇáÊÊÈÚ ÇáãÈÇÔÑ</span>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <!-- ŞÓã ÇáÎÑíØÉ æÇáÊÊÈÚ ÇáãÈÇÔÑ -->
+            <div class="card">
+                <h3>?? ÇáÊÊÈÚ ÇáÍí æÍÑßÉ ÇáãÑæÑ</h3>
+                <p style="font-size: 14px; color: #94a3b8;">ÊÊÈÚ ÅÍÏÇËíÇÊ ÇáÜ GPS æÍÇáÉ ÇÒÏÍÇã ÇáØÑŞ ÇáÍíÉ.</p>
+                <div class="status-box" id="gps-status">ÌÇÑò ÊİÚíá äÙÇã ÊÍÏíÏ ÇáãæŞÚ (GPS)...</div>
+                <button class="btn" onclick="getLocation()">ÊÍÏíË ãæŞÚí ÇáÍÇáí</button>
+            </div>
+
+            <!-- ŞÓã ÇáÇÓÊÚáÇãÇÊ ÇáãÑæÑíÉ ÇáÑÓãí (PPO) -->
+            <div class="card">
+                <h3>?? ÇáÎÏãÇÊ ÇáãÑæÑíÉ æÇáãÎÇáİÇÊ (PPO)</h3>
+                <p style="font-size: 14px; color: #94a3b8;">ÑÇÈØ ÇáÇÓÊÚáÇã ÇáÑÓãí ÇáãÏãÌ ÏÇÎá ÇáäÙÇã:</p>
+                <a href="https://ppo.gov.eg/web/services/traffic/violations_about" target="_blank" class="btn">ÇáÇäÊŞÇá áÈæÇÈÉ ÇáäíÇÈÉ ÇáÚÇãÉ ááãÎÇáİÇÊ</a>
+                <iframe src="https://ppo.gov.eg/web/services/traffic/violations_about" title="ÇáÇÓÊÚáÇã Úä ÇáãÎÇáİÇÊ ÇáãÑæÑíÉ"></iframe>
+            </div>
+        </div>
+
+        <!-- ŞÓã ØæÇÑÆ æÓÑÚÉ ÇáÅÈáÇÛ -->
+        <div class="card">
+            <h3>?? ØæÇÑÆ ÇáÈáÇÛÇÊ æÇáÑÇÏÇÑÇÊ (Radar Bot)</h3>
+            <p style="font-size: 14px; color: #94a3b8;">ÅÑÓÇá ÊäÈíå İæÑí áÛÑİÉ ÇáÚãáíÇÊ Úä æÌæÏ ßãíä Ãæ ÑÇÏÇÑ ãÊÍÑß:</p>
+            <button class="btn btn-danger" onclick="alert('Êã ÅÑÓÇá ÅÔÇÑÉ ÇáØæÇÑÆ ÈäÌÇÍ ááÛÑİÉ ÇáãÑßÒíÉ!')">ÅÑÓÇá ÇÓÊÛÇËÉ / ÈáÇÛ ÑÇÏÇÑ ÚÇÌá</button>
+        </div>
+    </div>
+
+    <script>
+        function getLocation() {
+            const statusBox = document.getElementById("gps-status");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    statusBox.innerHTML = `? Êã ÑÕÏ ÇáãæŞÚ ÈäÌÇÍ: <br>ÎØ ÇáÚÑÖ: ${lat.toFixed(4)} <br>ÎØ ÇáØæá: ${lon.toFixed(4)}`;
+                }, () => {
+                    statusBox.innerHTML = "? ÊÚĞÑ ÊÍÏíÏ ÇáãæŞÚ¡ íÑÌì ÊİÚíá ÇáÜ GPS ãä åÇÊİß.";
+                });
+            } else {
+                statusBox.innerHTML = "? ãÊÕİÍß áÇ íÏÚã ÎÇÕíÉ ÊÍÏíÏ ÇáãæŞÚ.";
+            }
+        }
+    </script>
+
+</body>
+</html>
